@@ -1,0 +1,23 @@
+{
+  "folders": [
+    {
+      "path": "./"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "node_modules/": true,
+      "build/": true,
+      "cache/": true,
+      "temp/": true,
+      ".vscode/": true,
+      "scripts/": true,
+      ".gitignore": true,
+      "_env.json": true,
+      "package-lock.json": true,
+      "yarn.lock": true,
+      "yarn-error.log": true,
+    },
+    "cSpell.words": []
+  }
+}

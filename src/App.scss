@@ -1,0 +1,103 @@
+@import "@app/theme/variables";
+@import "@app/theme/classes";
+@import "@app/theme/mixins";
+@import "@app/theme/fonts";
+
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/code";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/tables";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/transitions";
+@import "~bootstrap/scss/dropdown";
+@import "~bootstrap/scss/button-group";
+@import "~bootstrap/scss/input-group";
+@import "~bootstrap/scss/custom-forms";
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/navbar";
+@import "~bootstrap/scss/card";
+@import "~bootstrap/scss/breadcrumb";
+@import "~bootstrap/scss/pagination";
+@import "~bootstrap/scss/badge";
+@import "~bootstrap/scss/jumbotron";
+@import "~bootstrap/scss/alert";
+@import "~bootstrap/scss/progress";
+@import "~bootstrap/scss/media";
+@import "~bootstrap/scss/list-group";
+@import "~bootstrap/scss/close";
+@import "~bootstrap/scss/toasts";
+@import "~bootstrap/scss/modal";
+@import "~bootstrap/scss/tooltip";
+@import "~bootstrap/scss/popover";
+@import "~bootstrap/scss/carousel";
+@import "~bootstrap/scss/spinners";
+@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/print";
+
+//remove defualt margin and padding
+body {
+  margin: 0;
+  padding: 0;
+}
+
+//set direction according to html dir attr
+body {
+  @include rtl {
+    direction: rtl;
+    text-align: right;
+  }
+  @include ltr {
+    direction: ltr;
+    text-align: left;
+  }
+}
+
+//set font family according to lang
+body {
+  @include fa {
+    //todo
+    font-family: $fa-font-family;
+  }
+  @include en {
+    font-family: var(--font-family-sans-serif);
+  }
+}
+
+//set scroll behavior to smooth scrolling
+body {
+  scroll-behavior: smooth;
+}
+
+// make root div full height
+div#root {
+  flex-direction: column;
+  min-height: 100vh;
+  display: flex;
+}
+
+/**** remove focuse outline in chrome ****/
+*:focus {
+  outline: none;
+}
+
+/**** remove anchor underline ****/
+a {
+  text-decoration: none !important;
+}
+
+/**** resolve dropdown arrow space ****/
+.dropdown-toggle::after {
+  @include rtl {
+    margin-right: 0.255em;
+    margin-left: 0 !important;
+  }
+}
+
+// prevent image size overflow 
+img {
+  max-width: 100%;
+}

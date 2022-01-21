@@ -1,0 +1,103 @@
+/*
+* Typography:
+* https://getbootstrap.com/docs/4.6/content/typography/
+
+* Colors:
+* https://getbootstrap.com/docs/4.4/utilities/colors/
+*/
+
+@import "mixins";
+@import "variables";
+
+/********** BOX ***************/
+// margin end
+.me-0 {
+  @include margin-end(0);
+}
+.me-1 {
+  @include margin-end(0.25rem);
+}
+.me-2 {
+  @include margin-end(0.5rem);
+}
+.me-3 {
+  @include margin-end(1rem);
+}
+.me-4 {
+  @include margin-end(1.5rem);
+}
+.me-5 {
+  @include margin-end(3rem);
+}
+.me-auto {
+  @include margin-end(auto);
+}
+
+// margin start
+.ms-0 {
+  @include margin-start(0);
+}
+.ms-1 {
+  @include margin-start(0.25rem);
+}
+.ms-2 {
+  @include margin-start(0.5rem);
+}
+.ms-3 {
+  @include margin-start(1rem);
+}
+.ms-4 {
+  @include margin-start(1.5rem);
+}
+.ms-5 {
+  @include margin-start(3rem);
+}
+.ms-auto {
+  @include margin-start(auto);
+}
+
+// padding end
+.pe-0 {
+  @include padding-end(0);
+}
+.pe-1 {
+  @include padding-end(0.25rem);
+}
+.pe-2 {
+  @include padding-end(0.5rem);
+}
+.pe-3 {
+  @include padding-end(1rem);
+}
+.pe-4 {
+  @include padding-end(1.5rem);
+}
+.pe-5 {
+  @include padding-end(3rem);
+}
+.pe-auto {
+  @include padding-end(auto);
+}
+
+// padding start
+.ps-0 {
+  @include padding-start(0);
+}
+.ps-1 {
+  @include padding-start(0.25rem);
+}
+.ps-2 {
+  @include padding-start(0.5rem);
+}
+.ps-3 {
+  @include padding-start(1rem);
+}
+.ps-4 {
+  @include padding-start(1.5rem);
+}
+.ps-5 {
+  @include padding-start(3rem);
+}
+.ps-auto {
+  @include padding-start(auto);
+}

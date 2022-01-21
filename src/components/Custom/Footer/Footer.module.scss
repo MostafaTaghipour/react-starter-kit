@@ -1,0 +1,10 @@
+@import "@app/theme/variables";
+@import "@app/theme/mixins";
+
+.footer {
+  background-color: gray("200");
+
+  @include dark {
+    background-color: gray("900");
+  }
+}

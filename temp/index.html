@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html helmetHtmlAttributes>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+    <!-- HelmetTitle -->
+    <link rel="icon" href="<%= process.env.PUBLIC_PATH %>favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- HelmetMeta -->
+    <!-- HelmetLink -->
+    <%= htmlWebpackPlugin.tags.headTags %>
+</head>
+
+<body helmetBodyAttributes>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+        <!-- AppContent -->
+    </div>
+    <%= htmlWebpackPlugin.tags.bodyTags %>
+</body>
+
+</html>

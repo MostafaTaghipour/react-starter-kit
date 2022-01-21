@@ -1,0 +1,34 @@
+@import "mixins";
+@import "variables";
+
+
+@include font-face(
+  $fa-font-family,
+  "../assets/fonts/IranYekan/iranyekanwebthinfanum",
+  $font-weight-thin
+);
+@include font-face(
+  $fa-font-family,
+  "../assets/fonts/IranYekan/iranyekanweblightfanum",
+  $font-weight-light
+);
+@include font-face(
+  $fa-font-family,
+  "../assets/fonts/IranYekan/iranyekanwebregularfanum",
+  $font-weight-regular
+);
+@include font-face(
+  $fa-font-family,
+  "../assets/fonts/IranYekan/iranyekanwebmediumfanum",
+  $font-weight-medium
+);
+@include font-face(
+  $fa-font-family,
+  "../assets/fonts/IranYekan/iranyekanwebboldfanum",
+  $font-weight-bold
+);
+@include font-face(
+  $fa-font-family,
+  "../assets/fonts/IranYekan/iranyekanwebblackfanum",
+  $font-weight-black
+);

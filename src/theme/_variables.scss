@@ -1,0 +1,46 @@
+/**
+* Bootsrtap sass mixins, variables, functions:
+* https://getbootstrap.com/docs/4.0/getting-started/theming/
+*
+* Boostrap All Variables:
+* https://github.com/twbs/bootstrap/blob/main/scss/_variables.scss
+*/
+
+
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/mixins";
+
+
+// override bootstrap functions to comply with --vars
+@import "./bootstrap-functions-override";
+
+// Override Boostrap variables
+$primary: var(--primaryColor);
+$border-radius: var(--roundness);
+$body-bg: var(--bgColor);
+$body-color: var(--textColor);
+
+$font-weight-thin: 100;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+$font-weight-black: 900;
+
+$fa-font-family: "IranYekan";
+
+$enable-responsive-font-sizes: true;
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px,
+);
+
+// add other themes if you want
+// @import '~bootswatch/dist/sandstone/variables';
+// Import Bootstrap source files from node_modules
+@import "~bootstrap/scss/variables";

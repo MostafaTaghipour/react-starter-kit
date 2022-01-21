@@ -1,0 +1,8 @@
+{
+    "ENVIRONMENT": "production",
+    "API_URL": "https://api.example.com/",
+    "USE_MOCK_DATA" : false,
+    "LOG_NETWORK_REQUEST": false,
+    "LOG_REDUX_ACTIONS": false,
+    "NETWORK_REQUEST_TIMEOUT_IN_SEC" : 40
+}

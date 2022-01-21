@@ -1,0 +1,48 @@
+@import "@app/theme/variables";
+@import "@app/theme/mixins";
+
+.navbar {
+  @include dark {
+    background-color: #212529 !important;
+  }
+
+  .searchInput {
+    @include media-breakpoint-down(sm) {
+      width: calc(100% - 100px) !important;
+    }
+  }
+
+  .langs {
+    display: flex;
+    flex-direction: row !important;
+    @include media-breakpoint-down(md) {
+      margin-top: 1.5rem;
+      margin-bottom: 0 !important;
+      @include margin-start(0!important);
+    }
+    a {
+      padding: 0 0.7rem !important;
+      &:not(:last-child) {
+        @include rtl {
+          border-left: 1px solid gray("500");
+        }
+        @include ltr {
+          border-right: 1px solid gray("500");
+        }
+      }
+    }
+  }
+
+  .themeToggle {
+    @include media-breakpoint-down(md) {
+      position: absolute;
+      bottom: 1rem;
+      @include rtl {
+        left: 1rem;
+      }
+      @include ltr {
+        right: 1rem;
+      }
+    }
+  }
+}

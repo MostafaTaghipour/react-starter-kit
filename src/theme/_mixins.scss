@@ -1,0 +1,302 @@
+/**
+* Bootsrtap breakPoints:
+* https://getbootstrap.com/docs/5.0/layout/breakpoints/
+*
+* Bootstrap mixins
+* https://gist.github.com/anschaef/d7552885c0e1f127cf8830d3bbf6e4b1
+*/
+@import "~bootstrap/scss/mixins";
+
+/**
+*  usage:
+
+        .my-box {
+            padding: 10px;
+            
+            @include for-desktop-up {
+                padding: 20px;
+            }
+        }
+*/
+@mixin for-phone-only {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+@mixin for-tablet-only {
+  @media (min-width: 768px) and (max-width: 1024px) {
+    @content;
+  }
+}
+@mixin for-tablet-up {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin for-tablet-down {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1025px) {
+    @content;
+  }
+}
+
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) {
+    @content;
+  }
+}
+
+/*
+* usage:
+        div {
+            @include responsive-ratio(16,9);
+        }
+*/
+@mixin responsive-ratio($x, $y, $pseudo: false) {
+  $padding: unquote(($y / $x) * 100 + "%");
+  @if $pseudo {
+    &:before {
+      @include pseudo($pos: relative);
+      width: 100%;
+      padding-top: $padding;
+    }
+  } @else {
+    padding-top: $padding;
+  }
+}
+
+/**
+* usage:
+        input,  
+        textarea {  
+            @include input-placeholder {
+                color: $grey;
+            }
+        }
+*/
+@mixin input-placeholder {
+  &.placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+  &::-webkit-input-placeholder {
+    @content;
+  }
+}
+
+/**
+* usage:
+       div {
+            @include cover-background("cute-doggo.png");
+       }
+*/
+@mixin cover-background($url) {
+  background-image: url($url);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/**
+* usage:
+       html {
+            @include fluid-type(320px, 1200px, 16px, 24px);
+       }
+*/
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+  $u1: unit($min-vw);
+  $u2: unit($max-vw);
+  $u3: unit($min-font-size);
+  $u4: unit($max-font-size);
+
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+    & {
+      font-size: $min-font-size;
+      @media screen and (min-width: $min-vw) {
+        font-size: calc(
+          #{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} *
+            ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})
+        );
+      }
+      @media screen and (min-width: $max-vw) {
+        font-size: $max-font-size;
+      }
+    }
+  }
+}
+
+@mixin font-face($font-name, $file-name, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: quote($font-name);
+    src: url($file-name + ".eot");
+    src: url($file-name + ".eot?#iefix") format("embedded-opentype"),
+      url($file-name + ".woff") format("woff"),
+      url($file-name + ".ttf") format("truetype"),
+      url($file-name + ".svg##{$font-name}") format("svg");
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+// Usage 2 (with null properties)
+// @include padding(1px, null, 3px, 4px);
+// @include margin(1px, 2px, null, 4px);
+//Padding mixin
+@mixin padding($top, $right, $bottom, $left) {
+  padding-top: $top;
+  padding-right: $right;
+  padding-bottom: $bottom;
+  padding-left: $left;
+}
+//Margin mixin
+@mixin margin($top, $right, $bottom, $left) {
+  margin-top: $top;
+  margin-right: $right;
+  margin-bottom: $bottom;
+  margin-left: $left;
+}
+
+/****** Typography *******/
+/*Convertion Ration sp to rem for html */
+$conversionRatioSpToRemWeb: 1/16; //! 0.0625;
+$conversionRatioRemToPxWeb: 16;
+// Scales
+@function spToRem($sps) {
+  @return $sps * $conversionRatioSpToRemWeb;
+}
+@function remToPx($rems) {
+  @return $rems * $conversionRatioRemToPxWeb;
+}
+@function spacing($tracking, $px) {
+  @return $tracking / $px;
+}
+//todo height
+@mixin mat-typo($size, $weight, $spacing) {
+  font-weight: $weight;
+  font-size: #{spToRem($size)}rem;
+  letter-spacing: #{spacing($spacing, remToPx($size))}px;
+}
+
+/**
+* usage:
+      div {
+            @include rtl {
+              margin-right: 10px;
+            }
+            @include ltr {
+               margin-left: 10px;
+            }
+        }
+*/
+@mixin ltr {
+  [dir="ltr"] & {
+    @content;
+  }
+}
+@mixin rtl {
+  [dir="rtl"] & {
+    @content;
+  }
+}
+@mixin fa {
+  [lang="fa"] & {
+    @content;
+  }
+}
+@mixin en {
+  [lang="en"] & {
+    @content;
+  }
+}
+@mixin dark {
+  [data-theme="dark"] & {
+    @content;
+  }
+}
+@mixin light {
+  [data-theme="light"] & {
+    @content;
+  }
+}
+
+/**
+* usage:
+      div {
+            @include margin-end(10px);
+        }
+*/
+@mixin margin-end($value) {
+  @include rtl {
+    margin-left: $value;
+  }
+  @include ltr {
+    margin-right: $value;
+  }
+}
+@mixin margin-start($value) {
+  @include rtl {
+    margin-right: $value;
+  }
+  @include ltr {
+    margin-left: $value;
+  }
+}
+@mixin padding-end($value) {
+  @include rtl {
+    padding-left: $value;
+  }
+  @include ltr {
+    padding-right: $value;
+  }
+}
+@mixin padding-start($value) {
+  @include rtl {
+    padding-right: $value;
+  }
+  @include ltr {
+    padding-left: $value;
+  }
+}
+
+
+
+
+
+/**
+* https://gist.github.com/jonathantneal/a9b8901273475d261dd3
+* usage:
+      .my-container {
+        @include fluid-aspect(4 3, img);
+      }
+*/
+@mixin fluid-aspect($ratio: 1 1, $selector: "> :first-child") {
+	$selector: unquote($selector);
+
+	padding-bottom: percentage(nth($ratio, 2) / nth($ratio, 1));
+	position: relative;
+
+	#{$selector} {
+		left: 0;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+}
