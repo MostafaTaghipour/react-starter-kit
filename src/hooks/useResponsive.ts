@@ -1,3 +1,6 @@
+/**
+ * https://www.npmjs.com/package/react-responsive/v/9.0.0-beta.2
+ */
 import { useMediaQuery } from "react-responsive";
 
 export const useDesktopMediaQuery = () => useMediaQuery({ minWidth: 1025 });
