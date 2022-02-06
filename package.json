@@ -8,8 +8,6 @@
     "start:staging": "node ./scripts/preStartScript.js staging && concurrently \"yarn start:tsc\" \"razzle start\"",
     "start:production": "node ./scripts/preStartScript.js production && concurrently \"yarn start:tsc\" \"razzle start\"",
     "start:spa": "node ./scripts/preStartScript.js development --spa && concurrently \"yarn start:tsc\" \"razzle start --spa\"",
-    "start:spa:staging": "node ./scripts/preStartScript.js staging --spa && concurrently \"yarn start:tsc\" \"razzle start --spa\"",
-    "start:spa:production": "node ./scripts/preStartScript.js production --spa && concurrently \"yarn start:tsc\" \"razzle start --spa\"",
     "build": "tsc -b && razzle build",
     "build:spa": "node ./scripts/preStartScript.js --spa && tsc -b && razzle build",
     "clean": "rm -rf ./build",
